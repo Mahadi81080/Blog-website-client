@@ -1,16 +1,14 @@
- 
-import { Outlet } from 'react-router-dom'
-import './App.css'
+import { Outlet } from "react-router-dom";
+import "./App.css";
+import Home from "./Pages/Home/Home";
 
 function App() {
- 
-
   return (
     <>
-      <h1>Vite + React</h1>
+      <Home></Home>
       <Outlet></Outlet>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
