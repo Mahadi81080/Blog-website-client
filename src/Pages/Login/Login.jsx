@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
@@ -90,7 +91,7 @@ const Login = () => {
                 )}
               </div>
             </div>
-            <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">
+            <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-black">
               Sign in
             </button>
           </form>
