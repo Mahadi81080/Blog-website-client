@@ -39,9 +39,9 @@ const Navbar = () => {
                     ? "text-orange-500 font-bold px-3 py-2"
                     : "font-bold px-3 py-2"
                 }
-                to="/addSpot"
+                to="/addBlog"
               >
-                Add Tourists Spot
+                Add Blog
               </NavLink>
             </li>
             <li>
@@ -62,7 +62,7 @@ const Navbar = () => {
     );
     const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className=" bg-[#f7f2ee]">
+    <div className=" bg-black text-white">
       <div
         data-aos="fade-down"
         data-aos-easing="linear"
@@ -139,7 +139,7 @@ const Navbar = () => {
                     alt="Tailwind CSS Navbar component"
                     src={
                       user?.photoURL ||
-                      "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
                     }
                   />
                 </div>
@@ -150,13 +150,13 @@ const Navbar = () => {
                 }`}
               >
                 <li>
-                  <button className="btn btn-sm bg-[#ed5b31] text-white">
+                  <button className="btn btn-sm bg-[#f7775e] text-white">
                     {user?.displayName || "User name not found"}
                   </button>
                 </li>
                 <li>
-                  <button
-                    className=" bg-[#ed5b31] text-white py-2 flex justify-center"
+                <button
+                    className=" bg-[#f7775e] text-white py-2 flex justify-center"
                     onClick={logOut}
                   >
                     Logout

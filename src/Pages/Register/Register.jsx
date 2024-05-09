@@ -133,7 +133,7 @@ const Register = () => {
                 Go to Login page
                 <Link
                   to="/login"
-                  className="hover:underline dark:text-violet-600"
+                  className="hover:underline font-bold"
                 >
                   Login
                 </Link>
@@ -142,7 +142,7 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <div>
-                <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">
+                <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-black">
                   Register
                 </button>
               </div>
