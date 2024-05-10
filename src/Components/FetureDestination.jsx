@@ -1,6 +1,6 @@
 const FetureDestination = () => {
   return (
-    <div className="flex justify-center gap-4 mx-10">
+    <div className="flex justify-center gap-4 mx-10 my-10">
       <div className="mx-auto" style={{ maxWidth: "600px" }}>
         <iframe
           title="Google Maps"
