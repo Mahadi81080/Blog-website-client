@@ -14,7 +14,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/addBlog`),
       },
       {
         path: "/login",
@@ -31,18 +32,18 @@ const router = createBrowserRouter([
       {
         path: "/addBlog/:id",
         element: <BlogDetails></BlogDetails>,
-        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/addBlog/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/addBlog/${params.id}`),
       },
       {
         path: "/allBlog",
         element: <AllBlog></AllBlog>,
-        loader:()=>fetch(`${import.meta.env.VITE_API_URL}/addBlog`)
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/addBlog`),
       },
       {
-        path:"/comment",
-        element:<BlogDetails></BlogDetails>
-      }
-      
+        path: "/comment",
+        element: <BlogDetails></BlogDetails>,
+      },
     ],
   },
 ]);

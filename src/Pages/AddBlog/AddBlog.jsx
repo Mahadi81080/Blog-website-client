@@ -98,7 +98,6 @@ const AddBlog = () => {
                   <option value="Fashion and Style">Fashion and Style</option>
                 </select>
               </label>
-
               <label className="form-control col-span-full sm:col-span-3">
                 <div className="label">
                   <span className="label-text">Short_description</span>

@@ -14,7 +14,7 @@ const Banner = () => {
           <p className="py-6 text-lg">
             See how I helped real readers plan,save and go to the trip of a lifetime.And gets <span className="text-[#f77b62]">actionable steps you can use to travel anywhere</span>._no matteryour income or where you are from
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="btn bg-[#f77b62] text-white">Get Started</button>
         </div>
       </div>
     </div>

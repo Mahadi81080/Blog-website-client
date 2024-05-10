@@ -1,66 +1,67 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../Providers/AuthProvider";
+import { AuthContext } from "../Providers/AuthProvider";
+ 
 
 const Navbar = () => {
-    const { logOut, user } = useContext(AuthContext);
-    const navLink = (
-      <>
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#d7d7d7] font-bold px-3 py-2"
-                : "font-bold px-3 py-2 "
-            }
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-orange-500 font-bold px-3 py-2 "
-                : "font-bold px-3 py-2 "
-            }
-            to="/allBlog"
-          >
-            All Blog
-          </NavLink>
-        </li>
-        {user && (
-          <>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-orange-500 font-bold px-3 py-2"
-                    : "font-bold px-3 py-2"
-                }
-                to="/addBlog"
-              >
-                Add Blog
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-orange-500 font-bold px-3 py-2  "
-                    : "font-bold px-3 py-2 "
-                }
-                to="/myList"
-              >
-                My List
-              </NavLink>
-            </li>
-          </>
-        )}
-      </>
-    );
-    const [showMenu, setShowMenu] = useState(false);
+  const { logOut, user } = useContext(AuthContext);
+  const navLink = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-[#d7d7d7] font-bold px-3 py-2"
+              : "font-bold px-3 py-2 "
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-orange-500 font-bold px-3 py-2 "
+              : "font-bold px-3 py-2 "
+          }
+          to="/allBlog"
+        >
+          All Blog
+        </NavLink>
+      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-500 font-bold px-3 py-2"
+                  : "font-bold px-3 py-2"
+              }
+              to="/addBlog"
+            >
+              Add Blog
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-500 font-bold px-3 py-2  "
+                  : "font-bold px-3 py-2 "
+              }
+              to="/myList"
+            >
+              My List
+            </NavLink>
+          </li>
+        </>
+      )}
+    </>
+  );
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <div className=" bg-black text-white">
       <div
@@ -155,7 +156,7 @@ const Navbar = () => {
                   </button>
                 </li>
                 <li>
-                <button
+                  <button
                     className=" bg-[#f7775e] text-white py-2 flex justify-center"
                     onClick={logOut}
                   >
