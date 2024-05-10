@@ -2,9 +2,6 @@ import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, createUse
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 import axios from "axios";
- 
-
- 
 export const AuthContext = createContext({});
 // Social auth provider
 const googleProvider =new GoogleAuthProvider()

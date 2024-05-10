@@ -1,10 +1,12 @@
- 
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const AddBlog = () => {
+  const { user } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -12,14 +14,21 @@ const AddBlog = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const blogData = {
+      ...data,
+      email: user?.email,
+      displayName: user?.displayName,
+      owner_photo: user?.photoURL,
+    };
+    console.log(blogData);
+
     // Send data to the server
     fetch(`${import.meta.env.VITE_API_URL}/addBlog`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(blogData),
     }).then((res) =>
       res.json().then((data) => {
         console.log(data);
@@ -91,10 +100,17 @@ const AddBlog = () => {
                 <div className="label">
                   <span className="label-text">Category</span>
                 </div>
-                <select name="category" id="" {...register("Category")} className="h-12 rounded-md border border-gray-300">
+                <select
+                  name="category"
+                  id=""
+                  {...register("Category")}
+                  className="h-12 rounded-md border border-gray-300"
+                >
                   <option value="Travel">Travel</option>
                   <option value="Food and Cooking">Food and Cooking</option>
-                  <option value="Health and Wellness">Health and Wellness</option>
+                  <option value="Health and Wellness">
+                    Health and Wellness
+                  </option>
                   <option value="Fashion and Style">Fashion and Style</option>
                 </select>
               </label>

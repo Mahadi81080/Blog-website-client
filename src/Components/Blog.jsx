@@ -1,8 +1,18 @@
-import { useState } from "react";
+
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Blog = ({ blog }) => {
-  const {_id, Blog_Name, Photo, Category, Short_description } = blog;
+  const {user}=useContext(AuthContext)
+  const {_id, Blog_Name, Photo, Category, Short_description,email } = blog;
+  const handleWishlist=()=>{
+    if(user?.email===blog.email){
+      return toast.error("Action not permitted")
+    }
+  }
   return (
     <article className="flex flex-col dark:bg-gray-50 rounded-md shadow-md">
       <a
@@ -44,6 +54,7 @@ const Blog = ({ blog }) => {
             </span>
           </Link>
           <button
+          onClick={handleWishlist}
             className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#f77b62] text-[#f77b62]"
           >
             <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#f77b62] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
@@ -53,6 +64,7 @@ const Blog = ({ blog }) => {
           </button>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </article>
   );
 };

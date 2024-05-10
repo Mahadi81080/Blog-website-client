@@ -3,7 +3,6 @@ import Blog from "../../Components/Blog";
 
 const AllBlog = () => {
   const allBlogs = useLoaderData();
-  const { Blog_Name, Photo, Category, Short_description } = allBlogs;
   return (
     <div>
       <div className="max-w-2xl mx-auto my-10 text-center space-y-2">
