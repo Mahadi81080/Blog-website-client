@@ -57,6 +57,7 @@ const Newslatter = () => {
           </form>
         </div>
       </div>
+
       <ToastContainer />
     </div>
   );

@@ -6,6 +6,7 @@ import AddBlog from "../Pages/AddBlog/AddBlog";
 import Home from "../Pages/Home/Home";
 import AllBlog from "../Pages/AllBlog/AllBlog";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +28,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addBlog",
-        element: <AddBlog></AddBlog>,
+        element: <PrivateRoutes><AddBlog></AddBlog></PrivateRoutes>,
       },
       {
         path: "/addBlog/:id",
-        element: <BlogDetails></BlogDetails>,
+        element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/addBlog/${params.id}`),
       },
