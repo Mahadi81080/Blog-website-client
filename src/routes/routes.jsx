@@ -7,11 +7,14 @@ import Home from "../Pages/Home/Home";
 import AllBlog from "../Pages/AllBlog/AllBlog";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import Wishlist from "../Pages/Wishlist/Wishlist";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -28,11 +31,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/addBlog",
-        element: <PrivateRoutes><AddBlog></AddBlog></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <AddBlog></AddBlog>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/wishlist",
+        element:<Wishlist></Wishlist>
       },
       {
         path: "/addBlog/:id",
-        element: <PrivateRoutes><BlogDetails></BlogDetails></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <BlogDetails></BlogDetails>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/addBlog/${params.id}`),
       },

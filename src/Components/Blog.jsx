@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Blog = ({ blog }) => {
@@ -42,15 +43,14 @@ const Blog = ({ blog }) => {
               Details
             </span>
           </Link>
-          <a
-            href="#_"
+          <button
             className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-[#f77b62] text-[#f77b62]"
           >
             <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#f77b62] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
             <span className="relative text-[#f77b62] transition duration-300 group-hover:text-white ease">
               Wishlist
             </span>
-          </a>
+          </button>
         </div>
       </div>
     </article>

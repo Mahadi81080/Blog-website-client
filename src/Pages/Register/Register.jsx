@@ -1,28 +1,28 @@
-import {   useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../Providers/AuthProvider";
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const{creatUser}= useContext(AuthContext)
+  const { creatUser } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
- 
     const { email, password } = data;
     // Password verification
-    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    // const passwordRegex =
+    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
 
     // if (!passwordRegex.test(password)) {
     //   toast.error(
-    //     "Password must contain at least one lowercase letter, one uppercase letter, and be at least 6 characters long."
+    //     "Password must contain at least one lowercase letter, one uppercase letter, at least one numeric character,at least one special characte and be at least 6 characters long."
     //   );
     //   return;
     // }
@@ -131,10 +131,7 @@ const Register = () => {
               </div>
               <p className="px-6 text-sm text-center dark:text-gray-600">
                 Go to Login page
-                <Link
-                  to="/login"
-                  className="hover:underline font-bold"
-                >
+                <Link to="/login" className="hover:underline font-bold">
                   Login
                 </Link>
                 .

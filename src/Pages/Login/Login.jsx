@@ -2,36 +2,37 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import axios from "axios";
 
 const Login = () => {
-    const [showPassword, setShowPassword] = useState(false);
-    const location = useLocation();
-    console.log("Location in the login page", location);
-    const navigate = useNavigate();
-    const { singIn, googleLogin, githubLogin, facebookLogin } =
-      useContext(AuthContext);
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm();
-    const onSubmit = (data) => {
-      const { email, password } = data;
-      singIn(email, password)
-        .then((result) => {
-          console.log(result);
-          toast.success("Login Successfully");
-          navigate(location?.state ? location.state : "/");
-        })
-        .catch((error) => {
-          console.error("Sign-in error:", error);
-          toast.error("invalid login information");
-        });
-    };
+  const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  console.log("Location in the login page", location);
+  const navigate = useNavigate();
+  const { singIn, googleLogin, githubLogin, facebookLogin } =
+    useContext(AuthContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    const { email, password } = data;
+    singIn(email, password)
+      .then((result) => {
+        console.log(result);
+        toast.success("Login Successfully");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error("Sign-in error:", error);
+        toast.error("invalid login information");
+      });
+  };
   return (
     <div>
       <Helmet>
@@ -149,10 +150,7 @@ const Login = () => {
           </div>
           <p className="px-6 text-sm text-center dark:text-gray-600">
             Do not have an account yet?
-            <Link
-              to="/register"
-              className="hover:underline font-bold"
-            >
+            <Link to="/register" className="hover:underline font-bold">
               Sign up
             </Link>
             .

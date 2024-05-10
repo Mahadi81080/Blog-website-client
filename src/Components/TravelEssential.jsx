@@ -22,12 +22,12 @@ const TravelEssential = () => {
           alt=""
         />
         <img
-        className="h-52"
+        className="h-52 mt-7"
           src="https://i.postimg.cc/X77GB4cj/webimage-196-F0079-4-C2-B-46-AD-A0516-D32-B8-ACFBD8-removebg-preview.png"
           alt=""
         />
         <img
-          className="h-32 mt-10"
+          className="h-32 mt-14"
           src="https://i.postimg.cc/bwZZLgB4/61-AQ3g2wc6-L-AC-UY1100-removebg-preview.png"
           alt=""
         />

@@ -130,7 +130,7 @@ const BlogDetails = () => {
                 </label>
                 <input
                   type="submit"
-                  value="Add Blog"
+                  value="Add Comment"
                   className="btn btn-block bg-[#d2b48c] col-span-full mt-3"
                 />
               </form>

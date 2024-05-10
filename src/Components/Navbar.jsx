@@ -52,9 +52,9 @@ const Navbar = () => {
                   ? "text-orange-500 font-bold px-3 py-2  "
                   : "font-bold px-3 py-2 "
               }
-              to="/myList"
+              to="/wishlist"
             >
-              My List
+              Wishlist
             </NavLink>
           </li>
         </>
