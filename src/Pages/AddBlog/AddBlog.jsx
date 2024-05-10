@@ -47,7 +47,7 @@ const AddBlog = () => {
           data-aos-duration="1000"
         >
           <Typewriter
-            words={["Add Tourists Spot"]}
+            words={["Add Your Blog"]}
             cursor
             cursorStyle=""
             typeSpeed={70}
@@ -125,7 +125,7 @@ const AddBlog = () => {
               </label>
               <input
                 type="submit"
-                value="Add Tourists Spot"
+                value="Add Blog"
                 className="btn btn-block bg-[#d2b48c] col-span-full"
               />
             </div>

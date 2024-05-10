@@ -25,9 +25,9 @@ const Navbar = () => {
                 ? "text-orange-500 font-bold px-3 py-2 "
                 : "font-bold px-3 py-2 "
             }
-            to="/allSpot"
+            to="/allBlog"
           >
-            All Tourists Spot
+            All Blog
           </NavLink>
         </li>
         {user && (
