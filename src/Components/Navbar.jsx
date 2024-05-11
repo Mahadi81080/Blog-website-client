@@ -57,6 +57,18 @@ const Navbar = () => {
               Wishlist
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-500 font-bold px-3 py-2  "
+                  : "font-bold px-3 py-2 "
+              }
+              to="/comment"
+            >
+              All Comment
+            </NavLink>
+          </li>
         </>
       )}
     </>

@@ -1,39 +1,97 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const BlogDetails = () => {
   const details = useLoaderData();
-  console.log(details);
-  const { Blog_Name, Photo, Short_description, Long_description } = details;
+  const {user}=useContext(AuthContext)
+  const { _id,Blog_Name, Photo, Short_description, Long_description,email } = details;
   const {
     register,
     handleSubmit,
     // formState: { errors },
   } = useForm();
+  // const onSubmit = (data) => {
+  //   const commentData = {
+  //     ...data,
+  //     email: user?.email,
+  //     displayName: user?.displayName,
+  //     owner_photo: user?.photoURL,
+  //   };
+  //   console.log(commentData);
+  //   // Send data to the server
+  //   fetch(`${import.meta.env.VITE_API_URL}/comment`, {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(commentData),
+  //   }).then((res) =>
+  //     res.json().then((data) => {
+  //       console.log(data);
+  //       if (data.insertedId) {
+  //         Swal.fire({
+  //           title: "Success",
+  //           text: "Blog added successfully",
+  //           icon: "success",
+  //           confirmButtonText: "Cool",
+  //         });
+  //       }
+  //     })
+  //   );
+  // };
+
   const onSubmit = (data) => {
-    console.log(data);
-       // Send data to the server
-       fetch(`${import.meta.env.VITE_API_URL}/comment`, {
+    // Check if user email matches details email
+    if (user?.email === email) {
+      Swal.fire({
+        title: "Faild",
+        text: "Can not comment on own blog",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    } else {
+      // If emails don't match, show error message
+      const commentData = {
+        ...data,
+        email: user?.email,
+        displayName: user?.displayName,
+        owner_photo: user?.photoURL,
+      };
+
+      // Send data to the server
+      fetch(`${import.meta.env.VITE_API_URL}/comment`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(data),
-      }).then((res) =>
-        res.json().then((data) => {
-          console.log(data);
-          if (data.insertedId) {
-            Swal.fire({
-              title: "Success",
-              text: "Blog added successfully",
-              icon: "success",
-              confirmButtonText: "Cool",
-            });
-          }
-        })
-      );
+        body: JSON.stringify(commentData),
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Comment added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('Error adding comment:', error);
+        Swal.fire({
+          title: "Error",
+          text: "Failed to add comment. Please try again later.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      });
+    }
   };
   return (
     <div>
@@ -48,6 +106,13 @@ const BlogDetails = () => {
           <div className="container flex justify-center  flex-col mx-auto lg:flex-row">
             <div className="flex flex-col px-3 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/3 xl:w-3/5  text-gray-900">
               <img src={Photo} alt="" className="max-h-screen" />
+              {user?.email === email && (
+                <div className=" mx-auto">
+                  <Link to={`/update/${_id}`} className="btn bg-[#d2b48c] px-10 mt-6">
+                    Update Details
+                  </Link>
+                </div>
+              )}
             </div>
             <div className="w-full lg:w-1/2 xl:w-2/5 text-black p-5 space-y-3 mt-10">
               <div className="flex items-center space-x-2 sm:space-x-4">
@@ -89,7 +154,10 @@ const BlogDetails = () => {
                 </svg>
                 <div className="flex gap-5 items-center">
                   <p className="text-lg font-medium leading-snug">
-                    Spot description : <span className="text-base font-normal">{Short_description}</span>
+                    Spot description :{" "}
+                    <span className="text-base font-normal">
+                      {Short_description}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -110,9 +178,11 @@ const BlogDetails = () => {
                 </svg>
                 <div className="flex gap-5 ">
                   <p className="text-lg font-medium leading-snug">
-                    Long_description : <span className="text-base font-normal">{Long_description}</span>
+                    Long_description :{" "}
+                    <span className="text-base font-normal">
+                      {Long_description}
+                    </span>
                   </p>
-      
                 </div>
               </div>
               <form onSubmit={handleSubmit(onSubmit)}>

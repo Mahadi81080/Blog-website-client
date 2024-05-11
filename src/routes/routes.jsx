@@ -9,6 +9,8 @@ import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import PrivateRoutes from "./PrivateRoutes";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Comment from "../Pages/Comment/Comment";
+import UpdateDetails from "../Pages/UpdateDetails/UpdateDetails";
 
 const router = createBrowserRouter([
   {
@@ -58,8 +60,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/comment",
-        element: <BlogDetails></BlogDetails>,
+        element: <Comment></Comment>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/comment`),
       },
+      {
+        path:"/update/:id",
+        element:<UpdateDetails></UpdateDetails>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/addBlog/${params.id}`)
+      }
     ],
   },
 ]);
