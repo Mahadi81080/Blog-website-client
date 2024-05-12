@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Blog = ({ blog }) => {
   const {user}=useContext(AuthContext)
-  const {_id, Blog_Name, Photo, Category, Short_description,email } = blog;
+  const {_id, Blog_Name, Photo, Category, Short_description } = blog;
   const handleWishlist=()=>{
     if(user?.email===blog.email){
       return toast.error("Action not permitted")

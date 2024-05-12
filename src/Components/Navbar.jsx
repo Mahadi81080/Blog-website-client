@@ -64,6 +64,18 @@ const Navbar = () => {
                   ? "text-orange-500 font-bold px-3 py-2  "
                   : "font-bold px-3 py-2 "
               }
+              to="/featuredBlogs"
+            >
+              Featured Blogs
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-500 font-bold px-3 py-2  "
+                  : "font-bold px-3 py-2 "
+              }
               to="/comment"
             >
               All Comment
@@ -102,13 +114,13 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-item z-10 menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-item z-10 menu-sm dropdown-content mt-3 p-2 shadow bg-black rounded-box w-52"
             >
               {navLink}
             </ul>
           </div>
           <div className="flex gap-3 items-center justify-center">
-            <h2 className="text-2xl font-bold -mt-2">Backpack Traveler</h2>
+            <h2 className="lg:text-2xl font-bold -mt-2">Backpack Traveler</h2>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">

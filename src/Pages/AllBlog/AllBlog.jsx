@@ -46,7 +46,7 @@ const AllBlog = () => {
           See about your favorite travel destinations & our adventures
         </p>
       </div>
-      <div className="flex justify-center gap-10">
+      <div className="flex justify-center gap-4 lg:gap-10 mx-3 lg:mx-0">
         <select
           onChange={handleCategoryChange}
           name="category"

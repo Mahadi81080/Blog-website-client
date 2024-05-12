@@ -11,6 +11,7 @@ import Wishlist from "../Pages/Wishlist/Wishlist";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Comment from "../Pages/Comment/Comment";
 import UpdateDetails from "../Pages/UpdateDetails/UpdateDetails";
+import FeaturedBlogs from "../Pages/FeaturedBlogs/FeaturedBlogs";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
         path:"/update/:id",
         element:<UpdateDetails></UpdateDetails>,
         loader:({params})=>fetch(`${import.meta.env.VITE_API_URL}/addBlog/${params.id}`)
+      },
+      {
+        path:"/featuredBlogs",
+        element:<FeaturedBlogs></FeaturedBlogs>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/addBlog`),
       }
     ],
   },
