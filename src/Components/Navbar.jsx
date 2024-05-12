@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
- 
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
@@ -87,13 +86,10 @@ const Navbar = () => {
   );
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div className=" bg-black text-white">
-      <div
-        data-aos="fade-down"
-        data-aos-easing="linear"
-        data-aos-duration="1000"
-        className=" lg:px-10 navbar"
-      >
+    <div
+      className=" bg-black text-white"
+    >
+      <div className=" lg:px-10 navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
