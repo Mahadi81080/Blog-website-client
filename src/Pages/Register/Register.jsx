@@ -139,7 +139,7 @@ const Register = () => {
             </div>
             <div className="space-y-2">
               <div>
-                <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-black">
+                <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-[#9c5df9]">
                   Register
                 </button>
               </div>

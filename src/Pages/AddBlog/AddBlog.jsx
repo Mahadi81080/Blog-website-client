@@ -45,16 +45,17 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="mx-10 my-5">
+    <div className="mx-4 md:mx-6 lg:mx-10 my-5 flex flex-col md:flex-row lg:flex-row bg-[#f4f3f0] rounded-xl p-8">
       <Helmet>
         <title>Add_Blog</title>
       </Helmet>
-      <section className="p-6 bg-[#f4f3f0] rounded-xl">
-        <h2
-          className="md:text-2xl lg:text-3xl font-semibold text-center "
-          data-aos="fade-right"
-          data-aos-duration="1000"
-        >
+      <img
+        src="https://i.postimg.cc/bvxKYq48/Blogging-for-lawyers-690x420-removebg-preview.png"
+        alt=""
+        className="md:w-1/2 lg:w-1/2"
+      />
+      <section className="md:w-1/2 lg:w-1/2">
+        <h2 className="md:text-2xl lg:text-3xl font-semibold text-center ">
           <Typewriter
             words={["Add Your Blog"]}
             cursor
@@ -65,10 +66,10 @@ const AddBlog = () => {
           ></Typewriter>
         </h2>
         <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="container flex flex-col mx-auto space-y-12"
           data-aos="zoom-in-up"
           data-aos-duration="2000"
+          onSubmit={handleSubmit(onSubmit)}
+          className="container flex flex-col mx-auto space-y-12"
         >
           <fieldset className=" p-6 rounded-md shadow-sm">
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">

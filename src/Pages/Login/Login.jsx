@@ -41,9 +41,16 @@ const Login = () => {
       <div
         data-aos="zoom-in"
         data-aos-duration="1000"
-        className="flex justify-center px-5"
+        className="flex flex-col md:flex-row lg:flex-row justify-center px-5"
       >
-        <div className="w-full max-w-md p-8 space-y-3 rounded-xl shadow-xl my-3 dark:bg-gray-50 dark:text-gray-800">
+        <div className="">
+          <img
+            src="https://i.postimg.cc/C5SMMvcr/login-3305943-2757111.webp"
+            alt=""
+            className="p-6"
+          />
+        </div>
+        <div className="w-full max-w-md p-8 space-y-3 rounded-xl my-3 dark:text-gray-800">
           <h1 className="text-2xl font-bold text-center">Login</h1>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="space-y-4">
@@ -92,7 +99,7 @@ const Login = () => {
                 )}
               </div>
             </div>
-            <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-black">
+            <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 bg-[#9c5df9]">
               Sign in
             </button>
           </form>

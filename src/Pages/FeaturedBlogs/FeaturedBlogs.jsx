@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import FeturedBlog from "../../Components/FeturedBlog";
+import MUIDataTable from "mui-datatables";
 const FeaturedBlogs = () => {
   const feturedBlogs = useLoaderData();
   console.log(feturedBlogs);
@@ -14,14 +14,45 @@ const FeaturedBlogs = () => {
       calculateWordCount(a.Long_description)
   );
   const top10Blogs = sortedBlogs.slice(0, 10);
+  const columns = [
+    "Serial_Number",
+    "Blog_Title",
+    "Blog_Owner",
+    "Blog_Owner_Picture",
+  ];
 
- 
+  const data = top10Blogs.map((blog, index) => [
+    <h1 key={blog._id} className="ml-16">
+      {index + 1}
+    </h1>,
+    blog.Blog_Name,
+    blog.displayName || "Not Found",
+    blog.owner_photo ? (
+      <img
+        src={blog.owner_photo}
+        alt="User"
+        className="w-12 h-12 rounded-full ml-16"
+      />
+    ) : (
+      <img
+        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+        alt="Random"
+        className="w-12 h-12 rounded-full ml-16"
+      />
+    ),
+  ]);
 
+  const options = {
+    filterType: "checkbox",
+  };
   return (
     <div>
-      {
-        top10Blogs.map(feturedBlog=><FeturedBlog key={feturedBlog._id} feturesBlog={feturedBlog}></FeturedBlog>)
-      }
+      <MUIDataTable
+        title={"Top 10 Post"}
+        data={data}
+        columns={columns}
+        options={options}
+      />
     </div>
   );
 };
