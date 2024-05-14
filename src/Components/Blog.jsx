@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import 'react-photo-view/dist/react-photo-view.css';
+import Swal from "sweetalert2";
 
 const Blog = ({ blog }) => {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,37 @@ const Blog = ({ blog }) => {
   const handleWishlist = () => {
     if (user?.email === blog.email) {
       return toast.error("Owner not added item");
+    }
+    else{
+      const wishlistItem = {
+        Photo: blog.Photo,
+        Blog_Name: blog.Blog_Name,
+        Short_description: blog.Short_description,
+        Category: blog.Category,
+        email: user?.email,
+        displayName: user?.displayName,
+        owner_photo: user?.photoURL,
+      };
+         // Send data to the server
+    fetch(`${import.meta.env.VITE_API_URL}/wishlist`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(wishlistItem),
+    }).then((res) =>
+      res.json().then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success",
+            text: "Blog added successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      })
+    );
     }
   };
   return (
