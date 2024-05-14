@@ -8,7 +8,7 @@ A travel typically refers to the process of traveling from one place to another,
 
 ## Documentation
 
-To get started with Backpack Traveler, simply visit our live site [here](https://book-vibe-80.netlify.app/sing) and enjoying all the features our website.
+To get started with Backpack Traveler, simply visit our live site [here](https://blog-website-e15da.web.app) and enjoying all the features our website.
 
 ### Features of Zourney Site
 

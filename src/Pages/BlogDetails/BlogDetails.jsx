@@ -7,8 +7,9 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 const BlogDetails = () => {
   const details = useLoaderData();
+  console.log(details);
   const {user}=useContext(AuthContext)
-  const { _id,Blog_Name, Photo, Short_description, Long_description,email } = details;
+  const { _id,Blog_Name, Photo, Short_description,Long_description,email } = details;
   const {
     register,
     handleSubmit,
