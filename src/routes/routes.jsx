@@ -12,6 +12,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Comment from "../Pages/Comment/Comment";
 import UpdateDetails from "../Pages/UpdateDetails/UpdateDetails";
 import FeaturedBlogs from "../Pages/FeaturedBlogs/FeaturedBlogs";
+import SingleWishlist from "../Components/SingleWishlist";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +75,7 @@ const router = createBrowserRouter([
         path:"/featuredBlogs",
         element:<PrivateRoutes><FeaturedBlogs></FeaturedBlogs></PrivateRoutes>,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/addBlog`),
-      }
+      },
     ],
   },
 ]);

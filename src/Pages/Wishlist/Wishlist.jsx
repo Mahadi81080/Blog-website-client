@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import SingleWishlist from "../../Components/SingleWishlist";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Wishlist = () => {
@@ -11,10 +11,16 @@ const Wishlist = () => {
     (item) => item.email === currentUserEmail
   );
   console.log(currentList);
+  const [lists, setLists] = useState(currentList);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-5">
-      {currentList.map((wishlist) => (
-        <SingleWishlist key={wishlist._id} wishlist={wishlist}></SingleWishlist>
+      {lists.map((wishlist) => (
+        <SingleWishlist
+          key={wishlist._id}
+          wishlist={wishlist}
+          lists={lists}
+          setLists={setLists}
+        ></SingleWishlist>
       ))}
     </div>
   );
