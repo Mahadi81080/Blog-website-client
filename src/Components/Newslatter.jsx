@@ -46,7 +46,7 @@ const Newslatter = () => {
             />
             <input
               type="submit"
-              value="Add Blog"
+              value="Subscribe"
               className="w-2/5 p-3 font-semibold rounded-r-lg sm:w-1/3 bg-violet-400 dark:bg-[#f7775e] text-gray-900 dark:text-gray-50"
             />
           </form>

@@ -1,6 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    font-family: "Lora", serif;
+body {
+  font-family: "Lora", serif;
+}
+.responsive-table {
+  width: 100%;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 430px) {
+  .responsive-table {
+    width: 100%;
+  }
 }

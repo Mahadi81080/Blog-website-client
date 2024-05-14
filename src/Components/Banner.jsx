@@ -1,24 +1,26 @@
 import { motion } from "framer-motion";
+import slider  from "../assets/h4-slider-img-2.png";
+import slider2  from "../assets/h4-slider-img-3.png";
 const Banner = () => {
   return (
-    <div className="hero lg:min-h-screen bg-[#f7f2ee]">
-      <div className="hero-content flex-col lg:flex-row">
-        <div className="lg:w-1/2 relative flex items-center -ml-28 lg:-ml-0 lg:pl-10">
+    <div className="hero md:min-h-screen lg:min-h-screen bg-[#f7f2ee]">
+      <div className="hero-content flex-col md:flex-row lg:flex-row">
+        <div className=" md:w-1/2 lg:w-1/2 relative flex items-center -ml-28 md:pl-16 lg:-ml-0 lg:pl-10">
           <img
             data-aos="fade-right"
             data-aos-duration="800"
-            src="https://i.postimg.cc/KjjJKZkV/h4-slider-img-2.png"
+            src={slider}
             className="z-10 h-72 lg:h-auto"
           />
           <img
             data-aos="fade-down-left"
             data-aos-duration="500"
-            src="https://i.postimg.cc/pXZKNNm5/h4-slider-img-3.png"
+            src={slider2}
             alt=""
-            className="h-56 lg:h-72 absolute left-44 lg:left-64"
+            className="h-56 lg:h-72 absolute left-44 md:left-60 lg:left-64"
           />
         </div>
-        <div className="lg:w-1/2 text-center lg:pr-8">
+        <div className=" md:w-1/2 lg:w-1/2 text-center lg:pr-8">
           <h1 className=" text-3xl lg:text-5xl">
             BEST MONEY-SAVING TRAVEL TIPS !
           </h1>

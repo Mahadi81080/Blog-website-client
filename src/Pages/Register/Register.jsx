@@ -17,15 +17,15 @@ const Register = () => {
   const onSubmit = (data) => {
     const { email, password } = data;
     // Password verification
-    // const passwordRegex =
-    //   /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
 
-    // if (!passwordRegex.test(password)) {
-    //   toast.error(
-    //     "Password must contain at least one lowercase letter, one uppercase letter, at least one numeric character,at least one special characte and be at least 6 characters long."
-    //   );
-    //   return;
-    // }
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must contain at least one lowercase letter, one uppercase letter, at least one numeric character,at least one special characte and be at least 6 characters long."
+      );
+      return;
+    }
     creatUser(email, password)
       .then((result) => {
         console.log(result);

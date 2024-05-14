@@ -27,7 +27,7 @@ const RecentBlog = () => {
           cultural importance, or recreational opportunities.
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mx-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mx-10">
         {sixBlogs.map((blog) => (
           <Blog key={blog._id} blog={blog}></Blog>
         ))}

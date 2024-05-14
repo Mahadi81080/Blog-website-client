@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import MUIDataTable from "mui-datatables";
+import { Helmet } from "react-helmet";
 const FeaturedBlogs = () => {
   const feturedBlogs = useLoaderData();
   console.log(feturedBlogs);
@@ -46,12 +47,16 @@ const FeaturedBlogs = () => {
     filterType: "checkbox",
   };
   return (
-    <div>
+    <div className="featured-blogs">
+      <Helmet>
+        <title>Fetured_Blog</title>
+      </Helmet>
       <MUIDataTable
         title={"Top 10 Post"}
         data={data}
         columns={columns}
         options={options}
+        className="responsive-table"
       />
     </div>
   );

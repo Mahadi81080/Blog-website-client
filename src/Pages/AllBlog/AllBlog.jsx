@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Blog from "../../Components/Blog";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
 
 const AllBlog = () => {
   const allBlogs = useLoaderData();
@@ -38,6 +39,9 @@ const AllBlog = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>All_Blog</title>
+      </Helmet>
       <div className="max-w-2xl mx-auto my-10 text-center space-y-2">
         <h2 className="font-semibold tracking-wider uppercase text-4xl">
           OUR Blog Post

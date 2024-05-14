@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/wishlist",
-        element:<Wishlist></Wishlist>
+        element:<PrivateRoutes><Wishlist></Wishlist></PrivateRoutes>
       },
       {
         path: "/addBlog/:id",
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
       },
       {
         path:"/featuredBlogs",
-        element:<FeaturedBlogs></FeaturedBlogs>,
+        element:<PrivateRoutes><FeaturedBlogs></FeaturedBlogs></PrivateRoutes>,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/addBlog`),
       }
     ],

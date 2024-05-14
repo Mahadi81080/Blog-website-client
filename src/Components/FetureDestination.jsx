@@ -1,12 +1,12 @@
 const FetureDestination = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-center gap-4 mx-10 my-10">
+    <div className="flex flex-col md:flex-row lg:flex-row justify-center gap-4 mx-10 my-10">
       <div
         style={{
           position: "relative",
           width: "100%",
           paddingBottom: "56.25%",
-          maxHeight: "450px",
+          maxHeight: "900px",
         }}
       >
         <iframe
@@ -27,7 +27,7 @@ const FetureDestination = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      <div className="lg:w-1/2">
+      <div className="md:w-1/2 lg:w-1/2">
         <img src="https://i.postimg.cc/76Vd53wZ/landing-plane-img.png" alt="" />
         <div className="pt-10 pb-5 space-y-7">
           <h2 className="text-4xl ">

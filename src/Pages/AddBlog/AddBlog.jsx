@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Typewriter } from "react-simple-typewriter";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Providers/AuthProvider";
-
+import blog from "../../assets/Blogging-for-lawyers-690x420-removebg-preview.png"
 const AddBlog = () => {
   const { user } = useContext(AuthContext);
   const {
@@ -50,7 +50,7 @@ const AddBlog = () => {
         <title>Add_Blog</title>
       </Helmet>
       <img
-        src="https://i.postimg.cc/bvxKYq48/Blogging-for-lawyers-690x420-removebg-preview.png"
+        src={blog}
         alt=""
         className="md:w-1/2 lg:w-1/2"
       />

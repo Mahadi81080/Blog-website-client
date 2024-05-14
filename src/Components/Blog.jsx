@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import 'react-photo-view/dist/react-photo-view.css';
 
 const Blog = ({ blog }) => {
   const { user } = useContext(AuthContext);
   const { _id, Blog_Name, Photo, Category, Short_description } = blog;
   const handleWishlist = () => {
     if (user?.email === blog.email) {
-      return toast.error("Owner not added  item");
+      return toast.error("Owner not added item");
     }
   };
   return (
@@ -23,11 +25,15 @@ const Blog = ({ blog }) => {
         href="#"
         aria-label="Te nulla oportere reprimique his dolorum"
       >
-        <img
-          alt=""
-          className="object-cover w-full h-52 dark:bg-gray-500 rounded-t-md"
-          src={Photo}
-        />
+        <PhotoProvider>
+          <PhotoView src={Photo}>
+            <img
+              alt=""
+              className="object-cover w-full h-52 dark:bg-gray-500 rounded-t-md"
+              src={Photo}
+            />
+          </PhotoView>
+        </PhotoProvider>
       </a>
       <div className="flex flex-col flex-1 p-6">
         <a

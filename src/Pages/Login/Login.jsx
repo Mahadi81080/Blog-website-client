@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import axios from "axios";
+ import loginImg from "../../assets/login-3305943-2757111.webp"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -45,7 +45,7 @@ const Login = () => {
       >
         <div className="">
           <img
-            src="https://i.postimg.cc/C5SMMvcr/login-3305943-2757111.webp"
+            src={loginImg}
             alt=""
             className="p-6"
           />

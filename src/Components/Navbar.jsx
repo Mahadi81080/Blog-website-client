@@ -11,7 +11,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-[#d7d7d7] font-bold px-3 py-2"
+              ? "text-orange-500 font-bold px-3 py-2"
               : "font-bold px-3 py-2 "
           }
         >
@@ -28,6 +28,18 @@ const Navbar = () => {
           to="/allBlog"
         >
           All Blog
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "text-orange-500 font-bold px-3 py-2  "
+              : "font-bold px-3 py-2 "
+          }
+          to="/comment"
+        >
+          All Comment
         </NavLink>
       </li>
       {user && (
@@ -51,18 +63,6 @@ const Navbar = () => {
                   ? "text-orange-500 font-bold px-3 py-2  "
                   : "font-bold px-3 py-2 "
               }
-              to="/wishlist"
-            >
-              Wishlist
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-orange-500 font-bold px-3 py-2  "
-                  : "font-bold px-3 py-2 "
-              }
               to="/featuredBlogs"
             >
               Featured Blogs
@@ -75,9 +75,9 @@ const Navbar = () => {
                   ? "text-orange-500 font-bold px-3 py-2  "
                   : "font-bold px-3 py-2 "
               }
-              to="/comment"
+              to="/wishlist"
             >
-              All Comment
+              Wishlist
             </NavLink>
           </li>
         </>
@@ -86,9 +86,7 @@ const Navbar = () => {
   );
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <div
-      className=" bg-black text-white"
-    >
+    <div className=" bg-black text-white">
       <div className=" lg:px-10 navbar">
         <div className="navbar-start">
           <div className="dropdown">
